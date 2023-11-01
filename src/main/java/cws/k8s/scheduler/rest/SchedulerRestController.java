@@ -104,8 +104,6 @@ public class SchedulerRestController {
             return noSchedulerFor( execution );
         }
 
-        switch ( strategy.toLowerCase() ){
-            default: {
                 final String[] split = strategy.split( "-" );
                 Prioritize prioritize;
                 NodeAssign assign;
@@ -136,8 +134,6 @@ public class SchedulerRestController {
                 } else {
                     return new ResponseEntity<>( "No scheduler for strategy: " + strategy, HttpStatus.NOT_FOUND );
                 }
-            }
-        }
 
         schedulerHolder.put( execution, scheduler );
         client.addInformable( scheduler );
